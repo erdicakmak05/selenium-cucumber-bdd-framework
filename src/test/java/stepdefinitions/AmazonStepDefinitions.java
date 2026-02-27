@@ -13,62 +13,62 @@ public class AmazonStepDefinitions {
 
     AmazonPages amazonPages = new AmazonPages();
 
-    @Given("kullanici amazon sayfasina gider")
-    public void kullanici_amazon_sayfasina_gider() {
+    @Given("user navigates to amazon page")
+    public void user_navigates_to_amazon_page() {
         Driver.getDriver().get(ConfigReader.getProperty("AmazonUrl"));
     }
 
-    @Given("iPhone icin arama yapar")
-    public void i_phone_icin_arama_yapar() {
+    @Given("searches for iPhone")
+    public void searches_for_iPhone() {
         amazonPages.aramaKutusu.sendKeys("Iphone"+ Keys.ENTER);
 
     }
 
-    @Then("sonuclarin iPhone icerdigini test eder")
-    public void sonuclarin_iphone_icerdigini_test_eder() {
+    @Then("verifies that results contain iPhone")
+    public void verifies_that_results_contain_iPhone() {
         String sonucYazisiStr = amazonPages.sonucYazisiElementi.getText();
         Assert.assertTrue(sonucYazisiStr.contains("Iphone"));
     }
 
-    @Given("tea pot icin arama yapar")
-    public void tea_pot_icin_arama_yapar() {
+    @Given("searches for tea pot")
+    public void searches_for_tea_pot() {
         amazonPages.aramaKutusu.sendKeys("tea pot"+ Keys.ENTER);
     }
 
-    @Then("sonuclarin tea pot icerdigini test eder")
-    public void sonuclarin_tea_pot_icerdigini_test_eder() {
+    @Then("verifies that results contain tea pot")
+    public void verifies_that_results_contain_tea_pot() {
         String sonucYazisiStr = amazonPages.sonucYazisiElementi.getText();
         Assert.assertTrue(sonucYazisiStr.contains("tea pot"));
     }
 
-    @Given("flower icin arama yapar")
-    public void flower_icin_arama_yapar() {
+    @Given("searches for flower")
+    public void searches_for_flower() {
         amazonPages.aramaKutusu.sendKeys("Flower"+ Keys.ENTER);
     }
 
-    @Then("sonuclarin flower icerdigini test eder")
-    public void sonuclarin_flower_icerdigini_test_eder() {
+    @Then("verifies that results contain flower")
+    public void verifies_that_results_contain_flower() {
         String sonucYazisiStr = amazonPages.sonucYazisiElementi.getText();
         Assert.assertTrue(sonucYazisiStr.contains("Flower"));
     }
 
-    @Given("{string} icin arama yapar")
-    public void icin_arama_yapar(String arananKelime) {
-        amazonPages.aramaKutusu.sendKeys(arananKelime+Keys.ENTER);
+    @Given("searches for {string}")
+    public void searches_for(String searchKeyword) {
+        amazonPages.aramaKutusu.sendKeys(searchKeyword+Keys.ENTER);
     }
-    @Then("sonuclarin {string} icerdigini test eder")
-    public void sonuclarin_icerdigini_test_eder(String arananKelime) {
+    @Then("verifies that results contain {string}")
+    public void verifies_that_results_contain(String searchKeyword) {
         String sonucYazisiStr = amazonPages.sonucYazisiElementi.getText();
-        Assert.assertTrue(sonucYazisiStr.contains(arananKelime));
+        Assert.assertTrue(sonucYazisiStr.contains(searchKeyword));
     }
 
-    @And("sayfayi kapatir")
-    public void sayfayiKapatir() {
+    @And("closes the page")
+    public void closes_the_page() {
         Driver.closeDriver();
     }
 
-    @Given("kullanici {string} sayfasina gider")
-    public void kullaniciSayfasinaGider(String istenenUrl) {
-        Driver.getDriver().get(ConfigReader.getProperty(istenenUrl));
+    @Given("user navigates to {string} page")
+    public void user_navigates_to_page(String desiredUrl) {
+        Driver.getDriver().get(ConfigReader.getProperty(desiredUrl));
     }
 }

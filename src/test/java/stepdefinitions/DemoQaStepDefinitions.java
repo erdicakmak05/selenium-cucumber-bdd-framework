@@ -7,12 +7,12 @@ import utilities.Driver;
 public class DemoQaStepDefinitions {
 
 
-    @Then("{string} butonunun enable olmasini bekleyin")
-    public void butonunun_enable_olmasini_bekleyin(String string) {
+    @Then("wait for the {string} button to become enabled")
+    public void wait_for_the_button_to_become_enabled(String string) {
 
     }
-    @Then("{string} butonunun enable oldugunu test edin")
-    public void butonunun_enable_oldugunu_test_edin(String string) {
+    @Then("verify that the {string} button is enabled")
+    public void verify_that_the_button_is_enabled(String string) {
 
     }
 }

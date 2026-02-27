@@ -7,20 +7,20 @@ import utilities.ReusableMethods;
 
 public class HerokuappAddElementDefinitions {
     HerokuappAddElementPages herokuappAddElementPages = new HerokuappAddElementPages();
-    @When("kullanici Add Element butona basar")
-    public void kullanici_add_element_butona_basar() {
+    @When("user clicks on Add Element button")
+    public void user_clicks_on_add_element_button() {
         herokuappAddElementPages.addElementButtonn.click();
     }
-    @When("Delete butonu gorunur oluncaya kadar bekler")
-    public void delete_butonu_gorunur_oluncaya_kadar_bekler() {
+    @When("waits until the Delete button becomes visible")
+    public void waits_until_the_delete_button_becomes_visible() {
         ReusableMethods.waitForVisibility(herokuappAddElementPages.firstDeleteButton,15);
     }
-    @When("Delete butonunun gorunur oldugunu test eder")
-    public void delete_butonunun_gorunur_oldugunu_test_eder() {
+    @When("verifies that the Delete button is visible")
+    public void verifies_that_the_delete_button_is_visible() {
         Assert.assertTrue(herokuappAddElementPages.firstDeleteButton.isDisplayed());
     }
-    @When("Delete butonuna basarak butonu siler")
-    public void delete_butonuna_basarak_butonu_siler() {
+    @When("clicks the Delete button to remove it")
+    public void clicks_the_delete_button_to_remove_it() {
         herokuappAddElementPages.firstDeleteButton.click();
     }
 

@@ -13,62 +13,48 @@ import utilities.ReusableMethods;
 public class WebUniverstyStepDefinition {
     WebUniverstyPage webUniverstyPage = new WebUniverstyPage();
 
-    @Given("Login Portal'a  kadar asagi iner")
-    public void login_portal_a_kadar_asagi_iner() {
+    @Given("scrolls down to Login Portal")
+    public void scrolls_down_to_login_portal() {
         Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.PAGE_DOWN).perform();
 
     }
-    @Given("Login Portal'a tiklar")
-    public void login_portal_a_tiklar() {
-        /*JavascriptExecutor executor = (JavascriptExecutor)Driver.getDriver();
-        executor.executeScript("arguments[0].click();", webUniverstyPage.webUniversityLoginMainButton);
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(webUniverstyPage.webUniversityLoginMainButton).perform();
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
+    @Given("clicks on Login Portal")
+    public void clicks_on_login_portal() {
         webUniverstyPage.webUniversityLoginMainButton.click();
 
     }
-    @Then("acilan diger window'a gecer")
-    public void acilan_diger_window_a_gecer() {
+    @Then("switches to the other opened window")
+    public void switches_to_the_other_opened_window() {
         ReusableMethods.switchToWindow("WebDriver | Login Portal");
     }
-    @Then("{string} ve  {string} kutularina deger yazar")
-    public void ve_kutularina_deger_yazar(String username, String password) {
+    @Then("enters {string} and {string} into the fields")
+    public void enters_and_into_the_fields(String username, String password) {
         webUniverstyPage.webUniversityUserNameTextbox.sendKeys(username);
         webUniverstyPage.webUniversityPasswordTextbox.sendKeys(password);
     }
-    @Then("login butonuna basin")
-    public void login_butonuna_basin() {
+    @Then("clicks the login button on the page")
+    public void clicks_the_login_button_on_the_page() {
         webUniverstyPage.WebUniversityLoginButton.click();
     }
-    @Then("popup'ta cikan yazinin validation failed oldugunu test eder")
-    public void popup_ta_cikan_yazinin_validation_failed_oldugunu_test_eder() {
+    @Then("verifies that the popup text is validation failed")
+    public void verifies_that_the_popup_text_is_validation_failed() {
         System.out.println(Driver.getDriver().switchTo().alert().getText());
        String actualPopupMessage =  Driver.getDriver().switchTo().alert().getText();
        String expectedPopupMessage = "validation failed";
         System.out.println(actualPopupMessage);
         Assert.assertTrue(actualPopupMessage.equals(expectedPopupMessage));
     }
-    @Then("ok diyerek popup'i kapatir")
-    public void ok_diyerek_popup_i_kapatir() {
+    @Then("closes the popup by clicking ok")
+    public void closes_the_popup_by_clicking_ok() {
         Driver.getDriver().switchTo().alert().accept();
     }
-    @Then("ilk sayfaya geri doner")
-    public void ilk_sayfaya_geri_doner() {
+    @Then("returns to the first page")
+    public void returns_to_the_first_page() {
         ReusableMethods.switchToWindow("WebDriverUniversity.com");
     }
-    @Then("ilk sayfaya donuldugunu test eder")
-    public void ilk_sayfaya_donuldugunu_test_eder() {
+    @Then("verifies that returned to the first page")
+    public void verifies_that_returned_to_the_first_page() {
         Assert.assertTrue(Driver.getDriver().getTitle().equals("WebDriverUniversity.com"));
     }
 

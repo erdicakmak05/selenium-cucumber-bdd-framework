@@ -9,18 +9,18 @@ import utilities.ConfigReader;
 
 public class AutomaitonPracticeStepdefinition {
     AutomationPracticePage automationPracticePage = new AutomationPracticePage();
-    @Given("user sign in linkine tiklar")
-    public void user_sign_in_linkine_tiklar() {
+    @Given("user clicks on the sign in link")
+    public void user_clicks_on_the_sign_in_link() {
        automationPracticePage.signInElement.click();
     }
-    @Given("email kutusuna @isareti olmayan email adresi yazar ve enter'a tiklar")
-    public void email_kutusuna_isareti_olmayan_email_adresi_yazar_ve_enter_a_tiklar() {
+    @Given("enters an email address without @ symbol and clicks enter")
+    public void enters_an_email_address_without_at_symbol_and_clicks_enter() {
         String invalidMail = ConfigReader.getProperty("AutomationPracticeInvalidMail");
         automationPracticePage.emailTextBox.sendKeys(invalidMail+ Keys.ENTER);
     }
-    @Then("error mesajinin “Invalid email address”  oldugunu dogrulayin")
-    public void error_mesajinin_invalid_email_address_oldugunu_dogrulayin() {
-        Assert.assertTrue(automationPracticePage.invalidMailMessage.getText().contains("Invalid email address"));
+    @Then("verify that the error message is {string}")
+    public void verify_that_the_error_message_is(String expectedMessage) {
+        Assert.assertTrue(automationPracticePage.invalidMailMessage.getText().contains(expectedMessage));
     }
 
 }

@@ -1,13 +1,12 @@
-Feature: US1010 Herokuapp sayfasında add butonu testi
+Feature: US1010 Add button test on Herokuapp page
 
-  Scenario: TC15 sonradan gorunen elemanlar çalışmali
+  Scenario: TC15 elements appearing later should work
 
-    Given kullanici "HerokuappAddElementUrl" sayfasina gider
-    When kullanici Add Element butona basar
-    And Delete butonu gorunur oluncaya kadar bekler
-    And Delete butonunun gorunur oldugunu test eder
-    And Delete butonuna basarak butonu siler
-
+    Given user navigates to "HerokuappAddElementUrl" page
+    When user clicks on Add Element button
+    And waits until the Delete button becomes visible
+    And verifies that the Delete button is visible
+    And clicks the Delete button to remove it
 
 
 

@@ -1,17 +1,17 @@
 
 Feature: US1001_amazon_search
 @toplu @paralel1
-Scenario: TC01_AmazonSearch Testi
+Scenario: TC01_AmazonSearch Test
 
-  Given kullanici amazon sayfasina gider
-  And iPhone icin arama yapar
-  Then sonuclarin iPhone icerdigini test eder
+  Given user navigates to amazon page
+  And searches for iPhone
+  Then verifies that results contain iPhone
 
-  Given kullanici amazon sayfasina gider
-  And tea pot icin arama yapar
-  Then sonuclarin tea pot icerdigini test eder
+  Given user navigates to amazon page
+  And searches for tea pot
+  Then verifies that results contain tea pot
 
-  Given kullanici amazon sayfasina gider
-  And flower icin arama yapar
-  Then sonuclarin flower icerdigini test eder
+  Given user navigates to amazon page
+  And searches for flower
+  Then verifies that results contain flower
 

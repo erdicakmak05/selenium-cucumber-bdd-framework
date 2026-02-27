@@ -1,11 +1,11 @@
-Feature: US1013 Invalid email testi
+Feature: US1013 Invalid email test
   @Automation
-  Scenario: TC18 Invalid email ile giris yapilamaz
+  Scenario: TC18 Cannot login with invalid email
 
-     Given kullanici "AutomationPracticeUrl" sayfasina gider
-     And user sign in linkine tiklar
-     And email kutusuna @isareti olmayan email adresi yazar ve enter'a tiklar
-     Then error mesajinin “Invalid email address”  oldugunu dogrulayin
+     Given user navigates to "AutomationPracticeUrl" page
+     And user clicks on the sign in link
+     And enters an email address without @ symbol and clicks enter
+     Then verify that the error message is "Invalid email address"
 
 
 

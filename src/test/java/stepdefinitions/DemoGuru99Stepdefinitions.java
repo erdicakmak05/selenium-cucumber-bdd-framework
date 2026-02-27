@@ -13,8 +13,8 @@ public class DemoGuru99Stepdefinitions {
     DemoGuruPage demoGuruPage=new DemoGuruPage();
 
 
-    @Given("{string}, sutunundaki tum degerleri yazdirir")
-    public void sutunundaki_tum_degerleri_yazdirir(String istenenBaslikStr) {
+    @Given("prints all values in the {string} column")
+    public void prints_all_values_in_the_column(String desiredColumnStr) {
 
         //demoGuruPage.cookiesKabulEtButonu.click();
 
@@ -24,7 +24,7 @@ public class DemoGuru99Stepdefinitions {
 
         List<String> baslikStringListesi= ReusableMethods.getElementsText(baslikWebelementListesi);
 
-        int istenenSutunIndexi=baslikStringListesi.indexOf(istenenBaslikStr);
+        int istenenSutunIndexi=baslikStringListesi.indexOf(desiredColumnStr);
 
         //     //tbody//tr//td[3]
 
@@ -32,7 +32,7 @@ public class DemoGuru99Stepdefinitions {
 
         List<String> istenenSutunStrList = ReusableMethods.getElementsText(istenenSutunWebelementListesi);
 
-        System.out.println(istenenBaslikStr +" Sutunundaki elementler \n"+istenenSutunStrList);
+        System.out.println(desiredColumnStr +" Column elements \n"+istenenSutunStrList);
 
 
 

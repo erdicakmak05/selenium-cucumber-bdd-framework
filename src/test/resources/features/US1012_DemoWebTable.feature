@@ -1,6 +1,6 @@
 
 
-Feature: US1012 Kullanici istedigi basliktaki tum bilgileri listeler
-  Scenario: TC17 Kullanici istedigi basliktaki bilgileri listeleyebilmeli
-    Given kullanici "DemoGuruUrl" sayfasina gider
-    And "Istenen Baslik", sutunundaki tum degerleri yazdirir
+Feature: US1012 User lists all information under a desired column header
+  Scenario: TC17 User should be able to list information under desired column header
+    Given user navigates to "DemoGuruUrl" page
+    And prints all values in the "Desired Column" column

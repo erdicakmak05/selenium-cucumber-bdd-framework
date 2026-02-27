@@ -11,39 +11,39 @@ import utilities.ConfigReader;
 public class HmcStepDefinitions {
     HMCPage hmcPage = new HMCPage();
 
-    @Given("kullanıcı login linkine tiklar")
-    public void kullanici_login_linkine_tiklar() {
+    @Given("user clicks on login link")
+    public void user_clicks_on_login_link() {
         hmcPage.mainPageLogin.click();
     }
-    @Then("kullanıcı adi olarak {string} girer")
-    public void kullanici_adi_olarak_girer(String kullaniciTipi) {
-        hmcPage.userNameTextBox.sendKeys(ConfigReader.getProperty(kullaniciTipi));
+    @Then("user enters {string} as username")
+    public void user_enters_as_username(String userType) {
+        hmcPage.userNameTextBox.sendKeys(ConfigReader.getProperty(userType));
     }
-    @Then("password olarak {string} girer")
-    public void password_olarak_girer(String passwordTuru) {
-        hmcPage.passwordTextBox.sendKeys(ConfigReader.getProperty(passwordTuru));
+    @Then("enters {string} as password")
+    public void enters_as_password(String passwordType) {
+        hmcPage.passwordTextBox.sendKeys(ConfigReader.getProperty(passwordType));
     }
-    @Then("login butonuna basar")
-    public void login_butonuna_basar() {
+    @Then("clicks the login button")
+    public void clicks_the_login_button() {
         hmcPage.loginButonu.click();
     }
-    @Then("basarili olarak giris yapildigini test eder")
-    public void basarili_olarak_giris_yapildigini_test_eder() {
+    @Then("verifies that login is successful")
+    public void verifies_that_login_is_successful() {
         Assert.assertTrue(hmcPage.basariliGirisYaziElementi.isDisplayed());
     }
 
-    @And("giris yapilamadigini test eder")
-    public void girisYapilamadiginiTestEder() {
+    @And("verifies that login has failed")
+    public void verifies_that_login_has_failed() {
         Assert.assertTrue(hmcPage.girisYapilamadiYaziElementi.isDisplayed());
     }
 
-    @Then("scenario outline'dan username olarak {string} yazar")
-    public void scenarioOutlineDanUsernameOlarakYazar(String username) {
+    @Then("enters username as {string} from scenario outline")
+    public void enters_username_from_scenario_outline(String username) {
         hmcPage.userNameTextBox.sendKeys(username);
     }
 
-    @And("scenario outline'dan password olarak {string} yazar")
-    public void scenarioOutlineDanPasswordOlarakYazar(String password) {
+    @And("enters password as {string} from scenario outline")
+    public void enters_password_from_scenario_outline(String password) {
         hmcPage.passwordTextBox.sendKeys(password);
     }
 

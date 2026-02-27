@@ -11,61 +11,61 @@ import utilities.Driver;
 
 public class EditorStepDefinitions {
     EditorPage editorPage = new EditorPage();
-    @When("kullanici editor.datatables.net adresine gider")
-    public void kullanici_https_editor_datatables_net_adresine_gider() {
+    @When("user navigates to editor.datatables.net")
+    public void user_navigates_to_editor_datatables_net() {
         Driver.getDriver().get("https://editor.datatables.net/");
     }
-    @Then("new butonuna basar")
-    public void new_butonuna_basar() {
+    @Then("clicks the new button")
+    public void clicks_the_new_button() {
         editorPage.newButton.click();
     }
-    @Then("firstname olarak {string} yazar")
-    public void firstname_olarak_yazar(String firstname) {
+    @Then("enters {string} as firstname")
+    public void enters_as_firstname(String firstname) {
         editorPage.firstnameTextBox.sendKeys(firstname);
     }
-    @Then("lastname olarak {string} yazar")
-    public void lastname_olarak_yazar(String lastname) {
+    @Then("enters {string} as lastname")
+    public void enters_as_lastname(String lastname) {
         editorPage.lastNameBox.sendKeys(lastname);
     }
-    @Then("Position olarak {string} yazar")
-    public void position_olarak_yazar(String position) {
+    @Then("enters {string} as Position")
+    public void enters_as_position(String position) {
         editorPage.possitionBox.sendKeys(position);
     }
-    @Then("Office olarak {string} yazar")
-    public void office_olarak_yazar(String office) {
+    @Then("enters {string} as Office")
+    public void enters_as_office(String office) {
         editorPage.officeBox.sendKeys(office);
 
     }
-    @Then("Extension olarak {string} yazar")
-    public void extension_olarak_yazar(String extension) {
+    @Then("enters {string} as Extension")
+    public void enters_as_extension(String extension) {
         editorPage.extensionBox.sendKeys(extension);
     }
-    @Then("Start date olarak {string} yazar")
-    public void start_date_olarak_yazar(String startDate) {
+    @Then("enters {string} as Start date")
+    public void enters_as_start_date(String startDate) {
         editorPage.dateBox.sendKeys(startDate);
         Driver.getDriver().findElement(By.xpath("//div[@class='DTE_Body']")).click();
     }
-    @Then("Salary olarak {string} yazar")
-    public void salary_olarak_yazar(String salary) {
+    @Then("enters {string} as Salary")
+    public void enters_as_salary(String salary) {
         editorPage.salary.sendKeys(salary);
     }
-    @Then("Create tusuna basar")
-    public void create_tusuna_basar() {
+    @Then("clicks the Create button")
+    public void clicks_the_create_button() {
         editorPage.createButton.click();
     }
-    @When("kullanici {string} ile arama yapar")
-    public void kullanici_ile_arama_yapar(String firstname) {
+    @When("user searches for {string}")
+    public void user_searches_for(String firstname) {
         editorPage.searchTextbox.sendKeys(firstname);
     }
-    @Then("isim bolumunde {string} oldugunu dogrular")
-    public void isim_bolumunde_oldugunu_dogrular(String firstname) {
+    @Then("verifies that the name section contains {string}")
+    public void verifies_that_the_name_section_contains(String firstname) {
         String actualFirstname= editorPage.actualSearchResult.getText();
         Assert.assertTrue(actualFirstname.contains(firstname));
     }
 
 
-    @And("{int} saniye bekler")
-    public void saniyeBekler(int sure) {
+    @And("waits for {int} second")
+    public void waits_for_second(int duration) {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {

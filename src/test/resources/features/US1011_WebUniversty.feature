@@ -1,17 +1,17 @@
 Feature: US1011 WebUniversty Window Handle
   @WebU
-  Scenario Outline: TC16 Reasuble Methods ile Window Handle Testi
+  Scenario Outline: TC16 Window Handle Test with Reusable Methods
 
-    Given kullanici "WUUrl" sayfasina gider
-    And Login Portal'a  kadar asagi iner
-    And Login Portal'a tiklar
-    Then acilan diger window'a gecer
-    And "<username>" ve  "<password>" kutularina deger yazar
-    And login butonuna basin
-    And popup'ta cikan yazinin validation failed oldugunu test eder
-    And ok diyerek popup'i kapatir
-    And ilk sayfaya geri doner
-    And ilk sayfaya donuldugunu test eder
+    Given user navigates to "WUUrl" page
+    And scrolls down to Login Portal
+    And clicks on Login Portal
+    Then switches to the other opened window
+    And enters "<username>" and "<password>" into the fields
+    And clicks the login button on the page
+    And verifies that the popup text is validation failed
+    And closes the popup by clicking ok
+    And returns to the first page
+    And verifies that returned to the first page
 
 
     Examples:
